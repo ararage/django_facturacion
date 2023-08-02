@@ -8,10 +8,19 @@ from .views import (
     MarcaEdit,
     MarcaNew,
     MarcaView,
+    ProductoEdit,
+    ProductoNew,
+    ProductoView,
     SubCategoriaView,
     SubCategoriaNew,
     SubCategoriaEdit,
     SubCategoriaDel,
+    UMEdit,
+    UMNew,
+    UMView,
+    marca_inactivar,
+    producto_inactivar,
+    um_inactivar,
 )
 
 urlpatterns = [
@@ -35,4 +44,13 @@ urlpatterns = [
     path("marcas/new", MarcaNew.as_view(), name="marca_new"),
     path("marcas/edit/<int:pk>", MarcaEdit.as_view(), name="marca_edit"),
     path("marcas/delete/<int:pk>", MarcaDel.as_view(), name="marca_del"),
+    path("marcas/inactivar/<int:id>", marca_inactivar, name="marca_inactivar"),
+    path("um/", UMView.as_view(), name="um_list"),
+    path("um/new", UMNew.as_view(), name="um_new"),
+    path("um/edit/<int:pk>", UMEdit.as_view(), name="um_edit"),
+    path("um/inactivar/<int:id>", um_inactivar, name="um_inactivar"),
+    path("productos/", ProductoView.as_view(), name="producto_list"),
+    path("productos/new", ProductoNew.as_view(), name="producto_new"),
+    path("productos/edit/<int:pk>", ProductoEdit.as_view(), name="producto_edit"),
+    path("productos/inactivar/<int:id>", producto_inactivar, name="producto_inactivar"),
 ]
